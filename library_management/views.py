@@ -1,4 +1,7 @@
 from django.shortcuts import render
 
 def library_view(request):
-    pass
+    context = {
+        'title': 'Library Management',
+    }
+    return render(request,'library_management/books.html', context)
