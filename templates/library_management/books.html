@@ -5,6 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-    {{ title }}
+{% if books %}
+
+    {% for book in books %}
+        <h1>
+            Title: <B>{{ book.title }}</B>
+        </h1>
+        <h2>Author: {{ book.author }}</h2>
+        <h3>Pages: {{ book.pages }} pages</h3>
+        <h3>Price: {{ book.price }}</h3>
+
+        {% if book.is_reserved_now %}
+            <p style="color:red;"><b>This book is already in used.</b></p>
+        {% else %}
+            <p style="color:green;"><b>Available</b></p>
+        {% endif %}
+        =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+    {% endfor %}
+{% else %}
+    <h1>There is no Book in this library.</h1>
+{% endif %}
 </body>
 </html>
